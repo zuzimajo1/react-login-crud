@@ -1,11 +1,11 @@
 import React, { StrictMode } from 'react'
-import { Login } from './pages';
+import { Home, Login } from './pages';
 import './styles/styles.scss';
 
 const App = () => {
   return (
     <StrictMode>
-      <Login/>
+      <Home/>
     </StrictMode>
   );
 }

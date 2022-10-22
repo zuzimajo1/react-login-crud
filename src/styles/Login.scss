@@ -23,89 +23,79 @@
       }
 
       h2 {
-        @include text(18px, 700, 'Open Sans');
+        @include text(18px, 700, "Open Sans");
         @include marginVertical(20px, 40px);
       }
 
-      .button-google{
+      .button-google {
         @include button(100%, 20px, white, 17);
-        @include text(14px, 700, 'Open Sans');
+        @include text(14px, 700, "Open Sans");
         @include centerflex();
-        border: 1px solid #B7B2B2;
+        border: 1px solid #b7b2b2;
         padding: 9px 0;
-
-        img{
-            width: 20px;
-            height: 20px;
-            margin-right: 25px;
-        }
       }
 
-      .divider{
+      .divider {
         width: 100%;
         @include centerflex();
 
-        .line{
-            width: 90px;
-            height: 1px;
-            background-color: #DAD3D3;
+        .line {
+          width: 90px;
+          height: 1px;
+          background-color: #dad3d3;
         }
 
-        p{
-            margin: 0 20px;
-            @include text(13px, 400, 'Open Sans');
-            color: #BCB4B4;
+        p {
+          margin: 0 20px;
+          @include text(13px, 400, "Open Sans");
+          color: #bcb4b4;
         }
-
       }
 
-      .divider{
+      .divider {
         @include marginVertical(20px, 0);
       }
 
-      .loginform{
+      .loginform {
         @include marginVertical(20px, 0);
         width: 100%;
 
-        div{
-            display: flex;
-            flex-direction: column;
-            width: 100%;
+        div {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
 
-            label{
-                @include text(13px, 400, 'Open Sans');
-                color:  black;
-            }
+          label {
+            @include text(13px, 400, "Open Sans");
+            color: black;
+          }
 
-            input{
-                @include marginVertical(8px, 0);
-                padding: 5px 15px;
-                border-radius: 20px;
-                border: 1px solid #B7B2B2;
-                outline: none;
-
-            }   
+          input {
+            @include marginVertical(8px, 0);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid #b7b2b2;
+            outline: none;
+          }
         }
 
-        .forgot-password{
-            text-align: end;
-            text-transform: capitalize;
-            @include marginVertical(15px, 15px);
-            @include text(14px, 400, 'Open Sans');
-            color: blue;
-            text-decoration: underline;
-            cursor: #5C84D8;
+        .forgot-password {
+          text-align: end;
+          text-transform: capitalize;
+          @include marginVertical(15px, 15px);
+          @include text(14px, 400, "Open Sans");
+          color: #5c84d8;
+          text-decoration: underline;
+          cursor: pointer;
         }
 
-        .button-login{
-            @include button(100%, 20px, $login-button-color, 17);
-            color: white;
-            padding: 10px 0;
-            border: none;
-
+        .button-login {
+          @include button(100%, 20px, $login-button-color, 17);
+          color: white;
+          padding: 10px 0;
+          border: none;
         }
       }
-
     }
   }
 
@@ -114,4 +104,10 @@
     height: 85%;
     align-self: center;
   }
+}
+
+.googleIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 25px;
 }

@@ -2,14 +2,7 @@ import React from 'react'
 
 const home = () => {
   return (
-    <main>
-    <section>
-       
-    </section>
-    <section>
-
-    </section>
-    </main>
+    <h1>Home</h1>
   )
 }
 
