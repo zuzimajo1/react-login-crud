@@ -1,2 +1,13 @@
 export { default as Home } from "./home";
 export { default as Login } from "./login";
+export { default as CareerPath } from "./career_path";
+export { default as Error } from "./error"
+export { default as Assessments } from "./assessments";
+export { default as Help_and_Feeback } from "./help_and_feedback";
+export { default as Learning_Courses } from "./learning_course";
+export { default as Module_Library } from "./module_library";
+export { default as Profile } from "./profile";
+export { default as Reports } from "./reports";
+export { default as Teams } from "./teams";
+export { default as Users } from "./users";
+export { default as Whats_New } from "./whats_new";

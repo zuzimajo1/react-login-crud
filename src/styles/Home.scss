@@ -1,0 +1,83 @@
+.aside-container {
+  @include centercolumn();
+  background-color: $sidebar-color;
+  width: 220px;
+  height: 100vh;
+  padding: 7px 0;
+
+  .logo {
+    color: $login-button-color;
+    width: 150px;
+   
+  }
+
+  .user-container{
+    width: 100%;
+    height: 90px;
+    @include centerflex();
+    @include marginVertical(6px, 0);
+    background-color: $user-sidebar-color;
+   
+
+    .user-wrapper{
+        @include centerflex();
+
+        h2{
+            @include text(16px, 400, 'Open Sans');
+            color: white;
+        }
+
+        p{
+            @include text(14px, 300, 'Open Sans');
+            color: white;
+        }
+
+        
+        .user-image{
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+       
+       
+    }
+  }
+
+
+  .sidebar-navigation{
+    width: 100%;
+
+    ul{
+        width: 100%;
+
+        .sidebar-inactive{
+            width: 100%;
+            padding: 10px 0;
+            text-decoration: none;
+            color: $white-color;
+            @include text(14px, 500, 'Open Sans');
+            display: flex;
+            align-items: center;
+
+            .sidebar-icon{
+                margin: 0 15px;
+            }
+
+        }
+       
+        .sidebar-active{
+            @extend .sidebar-inactive;
+            background-color: $login-button-color;
+        }
+    }
+
+
+  }
+
+  li{
+    width: 100%;
+    @include centerflex();
+  }
+}
+
+

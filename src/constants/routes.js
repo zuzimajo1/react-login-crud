@@ -1,0 +1,11 @@
+export const HOME = "/dashboard";
+export const CAREER_PATH = "career_path";
+export const LEARNING_COURSES = "learning_courses";
+export const ASSESSMENTS = "/assessments";
+export const MODULE_LIBRARY = "/module_library";
+export const TEAMS = "/teams";
+export const USERS = "/users";
+export const REPORTS = "/reports";
+export const PROFILE = "/profile";
+export const HELP_AND_FEEDBACK = "/help_and_feedback";
+export const WHATS_NEW = "/whats_new";
