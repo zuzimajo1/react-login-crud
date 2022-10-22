@@ -1,18 +1,17 @@
-import React, { StrictMode } from 'react'
+import React, {StrictMode, useState } from 'react'
+import { Route, Routes } from 'react-router-dom';
 import { SideBar } from './components';
+import { SideBarNavs } from './config/types';
 import { Home, Login } from './pages';
 import AppRouter from './routers/AppRouter';
-
 import './styles/styles.scss';
 
 const App = () => {
+  const [User, setUser] = useState(true);
   return (
-    <main className='app-main'>
-      <SideBar/>
-      <div>
-      <AppRouter/>
-      </div>
-    </main>
+    <StrictMode>
+    {User ? <AppRouter /> : <Login />}
+    </StrictMode>
   );
 }
 

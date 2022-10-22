@@ -80,4 +80,18 @@
   }
 }
 
+.app-wrapper{
+    width: 100%;
+
+            .header-container{
+                @extend .app-wrapper;
+                background-color: #5087C7;
+                height: 40px;
+
+            }
+}
+
+
+
+
 
