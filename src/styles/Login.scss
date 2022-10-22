@@ -1,0 +1,117 @@
+.login-main {
+  @include flexcontainer();
+
+  .image-section {
+    width: 55%;
+    @include centerflex();
+    background-color: $background-color;
+    border-right: 3px solid $border-color;
+  }
+
+  .loginform-section {
+    width: 45%;
+    @include centerflex();
+
+    .loginform-wrapper {
+      @include centercolumn();
+      width: 360px;
+      height: auto;
+
+      img {
+        width: 200px;
+        height: 50px;
+      }
+
+      h2 {
+        @include text(18px, 700, 'Open Sans');
+        @include marginVertical(20px, 40px);
+      }
+
+      .button-google{
+        @include button(100%, 20px, white, 17);
+        @include text(14px, 700, 'Open Sans');
+        @include centerflex();
+        border: 1px solid #B7B2B2;
+        padding: 9px 0;
+
+        img{
+            width: 20px;
+            height: 20px;
+            margin-right: 25px;
+        }
+      }
+
+      .divider{
+        width: 100%;
+        @include centerflex();
+
+        .line{
+            width: 90px;
+            height: 1px;
+            background-color: #DAD3D3;
+        }
+
+        p{
+            margin: 0 20px;
+            @include text(13px, 400, 'Open Sans');
+            color: #BCB4B4;
+        }
+
+      }
+
+      .divider{
+        @include marginVertical(20px, 0);
+      }
+
+      .loginform{
+        @include marginVertical(20px, 0);
+        width: 100%;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            label{
+                @include text(13px, 400, 'Open Sans');
+                color:  black;
+            }
+
+            input{
+                @include marginVertical(8px, 0);
+                padding: 5px 15px;
+                border-radius: 20px;
+                border: 1px solid #B7B2B2;
+                outline: none;
+
+            }   
+        }
+
+        .forgot-password{
+            text-align: end;
+            text-transform: capitalize;
+            @include marginVertical(15px, 15px);
+            @include text(14px, 400, 'Open Sans');
+            color: blue;
+            text-decoration: underline;
+            cursor: #5C84D8;
+        }
+
+        .button-login{
+            @include button(100%, 20px, $login-button-color, 17);
+            color: white;
+            padding: 10px 0;
+            border: none;
+
+        }
+      }
+
+    }
+  }
+
+  .ategirl {
+    width: 100%;
+    height: 85%;
+    align-self: center;
+  }
+}

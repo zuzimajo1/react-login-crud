@@ -1,0 +1,96 @@
+
+
+*,::before,::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: '100vh';
+    font-family: 'Open Sans';
+}
+
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("../fonts/OpenSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+//Mixin
+
+@mixin centerflex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexcontainer(){
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+@mixin centercolumn(){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin text($font-size, $font-weight, $font-family) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-family: $font-family;
+}
+
+@mixin  marginVertical($margin-top, $margin-bottom) {
+    margin-top: $margin-top;
+    margin-bottom: $margin-bottom;
+}
+
+@mixin button($width, $border-radius, $background-color, $font-size){
+    width: $width;
+    border-radius: $border-radius;
+    background-color: $background-color;
+    font-size: $font-size;
+    cursor: pointer;
+}
+
+
+
+
+//Breakpoints
+$mobile: 30rem;
+$tablet: 50rem;
+$laptop: 64rem;
+$desktop: 95rem;
+$l-desktop: 102rem;
+
+//Colors
+$white-color: #FFFFFF;
+$border-color: #EBEBEB;
+$login-button-color: #5087C7;
+$background-color: #F5F5F5;
+
+
+
