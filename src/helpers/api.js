@@ -5,8 +5,8 @@ import { DeleteUser } from "../redux/reducers/usersRedux";
 
 const Base_URL = "https://entrance-exam-crud.herokuapp.com/";
 
-const auth = JSON.parse(localStorage?.getItem("persist:root"))?.auth;
-const jsonwebtoken = JSON.parse(auth)?.token;
+const auth2 = JSON.parse(localStorage?.getItem("persist:root"))?.auth;
+const jsonwebtoken = JSON.parse(auth2)?.auth?.token;
 
 
 
