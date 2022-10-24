@@ -6,7 +6,7 @@ import { Header, SideBar } from '../components';
 import * as ROUTE from "../constants/routes";
 import { useSelector } from 'react-redux';
 const AppRouter = () => {
-    const {isAdmin} = useSelector(state => state?.auth?.user);
+    const { isAdmin } = useSelector(state => state?.auth?.auth);
     
     return (
         <main className='app-main'>

@@ -23,7 +23,7 @@ const SideBar = () => {
 }
 
 const UserContainer = () => {
-    const { firstname, lastname, role } = useSelector(state=>state?.auth?.user);
+    const { firstname, lastname, role } = useSelector(state => state?.auth?.auth);
     return (
         <div className='user-container'>
             <User name={`${firstname} ${lastname}`} role={role} />
