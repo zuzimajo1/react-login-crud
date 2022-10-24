@@ -1,15 +1,11 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-
 import { DeleteUser } from "../redux/reducers/usersRedux";
-
 const Base_URL = "https://entrance-exam-crud.herokuapp.com/";
 
-
-
 const auth2 = localStorage?.getItem("persist:root") ? JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).auth : ""
-let jsonwebtoken = localStorage?.getItem("persist:root") ? auth2.token : null;
-console.log(jsonwebtoken);
+let jsonwebtoken = auth2.token;
+
 const publicRequest = axios.create({
     baseURL: Base_URL
 })
