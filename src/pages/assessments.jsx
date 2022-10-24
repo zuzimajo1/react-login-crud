@@ -2,7 +2,9 @@ import React from 'react'
 
 const assessments = () => {
   return (
-    <div>assessments</div>
+    <main className='main-pages' >
+      <h3>Assessment</h3>
+    </main>
   )
 }
 

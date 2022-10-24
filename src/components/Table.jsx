@@ -7,6 +7,8 @@ import Delete from "../assets/trash.svg";
 import Modal from './ViewModal';
 import EditModal from './EditModal';
 import { useSelector } from 'react-redux';
+import { DeleteUserByAdmin } from '../helpers/api';
+import { useDispatch } from 'react-redux';
 
 const customStyles = {
     headCells:{
@@ -28,7 +30,7 @@ const Table = () => {
     const [openModalUpdate, setopenModalUpdate] = useState(false);
     const [UserData, setUserData] = useState(); 
     const users = useSelector((state)=> state?.users?.users);
-    
+    const dispatch = useDispatch();
 
     //Table Configs
     const usersColumn = [
@@ -95,7 +97,7 @@ const Table = () => {
             center: true,
             cell: (row)=>{
                 return(
-                    <button className='actions-button'><img className='actions-svg' src={Delete} alt="Delete" /></button>
+                    <button onClick={() => DeleteUserByAdmin(dispatch,row._id)} className='actions-button'><img className='actions-svg' src={Delete} alt="Delete" /></button>
                 )
             }
         }

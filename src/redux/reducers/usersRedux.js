@@ -19,7 +19,7 @@ const usersRedux = createSlice({
         DeleteUser: (state, action)=>{
           state.users =  state.users.filter((items) => items._id !== action.payload )
         },
-        UpdateUser: (state, action)=>{
+        UserUpdate: (state, action)=>{
             state.users[state.users.findIndex((items)=> items._id === action.payload._id)] = action.payload;
         },
         HideUsers : (state)=>{
@@ -30,6 +30,6 @@ const usersRedux = createSlice({
 })
 
 
-export const { RetrievedAllUser, AddUser, DeleteUser, UpdateUser, HideUsers } =
+export const { RetrievedAllUser, AddUser, DeleteUser, UserUpdate, HideUsers } =
   usersRedux.actions;
 export default usersRedux.reducer;

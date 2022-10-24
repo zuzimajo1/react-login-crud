@@ -2,7 +2,9 @@ import React from 'react'
 
 const careerpath = () => {
   return (
-    <h1>career_path</h1>
+    <main className='main-pages' >
+      <h3>Career Path</h3>
+    </main>
   )
 }
 

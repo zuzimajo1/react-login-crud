@@ -2,7 +2,9 @@ import React from 'react'
 
 const help_and_feedback = () => {
   return (
-    <div>help_and_feedback</div>
+    <main className='main-pages' >
+      <h3>Help and Feeback</h3>
+    </main>
   )
 }
 

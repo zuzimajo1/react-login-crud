@@ -2,7 +2,9 @@ import React from 'react'
 
 const whats_new = () => {
   return (
-    <div>whats_new</div>
+    <main className='main-pages' >
+      <h3>What's New</h3>
+    </main>
   )
 }
 

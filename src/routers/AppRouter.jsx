@@ -26,7 +26,10 @@ const AppRouter = () => {
                     <Route path={ROUTE.HELP_AND_FEEDBACK} element={<Help_and_Feeback/>}/>
                     <Route path={ROUTE.WHATS_NEW} element={<Whats_New/>}/>
             </Routes>
-            <ToastContainer />
+                <ToastContainer position='bottom-right'
+                    autoClose={2500}
+                    closeButton={true}
+                    newestOnTop={true} />
             </div>
         </main>
     )

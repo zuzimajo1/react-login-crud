@@ -2,7 +2,9 @@ import React from 'react'
 
 const module_library = () => {
   return (
-    <div>module_library</div>
+    <main className='main-pages' >
+      <h3>Module Library</h3>
+    </main>
   )
 }
 
