@@ -7,7 +7,7 @@ $ npm install
 ```
 
 ### 2. For the Backend
-Please refer here [here](https://github.com/zuzimajo1/react-login-crud-backend#readme) and Login to your mongodb atlas for database 
+Please refer [here](https://github.com/zuzimajo1/react-login-crud-backend#readme) and Login to your mongodb atlas for database 
 
 Create an `env` file and save it in the root of your project folder
 ```
