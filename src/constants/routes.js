@@ -1,6 +1,6 @@
-export const HOME = "/dashboard";
-export const CAREER_PATH = "career_path";
-export const LEARNING_COURSES = "learning_courses";
+export const HOME = "/";
+export const CAREER_PATH = "/career_path";
+export const LEARNING_COURSES = "/learning_courses";
 export const ASSESSMENTS = "/assessments";
 export const MODULE_LIBRARY = "/module_library";
 export const TEAMS = "/teams";

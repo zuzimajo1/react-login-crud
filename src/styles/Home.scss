@@ -46,6 +46,8 @@
 
   .sidebar-navigation{
     width: 100%;
+    height: 100%;
+  
 
     ul{
         width: 100%;
@@ -87,8 +89,49 @@
                 @extend .app-wrapper;
                 background-color: #5087C7;
                 height: 40px;
+                display: flex;
+                justify-content: end;
+                padding: 0 20px;
+
+                div{
+                  width: auto;
+                  @include centerflex();
+
+                  button{
+                    background-color: transparent;
+                    color: white;
+                    @include centerflex();
+                    margin: 0 5px;
+                    border: none;
+                    cursor: pointer;
+                  }
+
+                  .header-icons{
+                    font-size: 20px;
+                  }
+
+                  .header-switch-icons{
+                    @extend .header-icons;
+                    margin-right: 12px;
+                  }
+
+
+
+                  // .header-switch-button{
+                  //   @include centerflex();
+                  // }
+
+
+                }
 
             }
+
+
+
+      
+
+
+
 }
 
 

@@ -1,17 +1,20 @@
-import React, {StrictMode, useState } from 'react'
+import React, { StrictMode, useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import { SideBar } from './components';
-import { SideBarNavs } from './config/types';
 import { Home, Login } from './pages';
+import { LoginRouter } from './routers';
 import AppRouter from './routers/AppRouter';
+import { useSelector } from 'react-redux';
 import './styles/styles.scss';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 
 const App = () => {
-  const [User, setUser] = useState(true);
+  const { userLogin } = useSelector(state => state.user);
   return (
-    <StrictMode>
-    {User ? <AppRouter /> : <Login />}
-    </StrictMode>
+    <>
+      {userLogin ? <AppRouter /> : <LoginRouter />}
+    </>
   );
 }
 
