@@ -6,6 +6,7 @@ import Edit from "../assets/edit.svg";
 import Delete from "../assets/trash.svg";
 import Modal from './ViewModal';
 import EditModal from './EditModal';
+import { useSelector } from 'react-redux';
 
 const customStyles = {
     headCells:{
@@ -25,147 +26,9 @@ const customStyles = {
 const Table = () => {
     const [openModalView, setopenModalView] = useState(false);
     const [openModalUpdate, setopenModalUpdate] = useState(false);
-    const [UserData, setUserData] = useState();
-
-
-    const sampledata = [
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-
-        },
-        {
-            firstname: "Zuzim2",
-            lastname: "Ajo2",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim3",
-            lastname: "Ajo3",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim4",
-            lastname: "Ajo4",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim5",
-            lastname: "Ajo5",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-         {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-        {
-            firstname: "Zuzim",
-            lastname: "Ajo",
-            email: "ajozuzim@gmail.com",
-            status: "Active",
-            role: "Trainee",
-        },
-    ]
-
-
+    const [UserData, setUserData] = useState(); 
+    const users = useSelector((state)=> state?.users?.users);
+    
 
     //Table Configs
     const usersColumn = [
@@ -249,7 +112,7 @@ const Table = () => {
         </div>
         <DataTable
         columns={usersColumn}
-        data={sampledata}
+        data={users}
         pagination
         highlightOnHover
         pointerOnHover

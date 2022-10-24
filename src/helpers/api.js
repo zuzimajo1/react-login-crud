@@ -1,12 +1,11 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Base_URL = "http://localhost:5000/";
+const Base_URL = "https://entrance-exam-crud.herokuapp.com/";
 
-const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
+const user = JSON.parse(localStorage?.getItem("persist:root"))?.auth;
 const jsonwebtoken = user && JSON.parse(user)?.user?.token
-
-
+console.log(jsonwebtoken);
 
 const publicRequest = axios.create({
     baseURL: Base_URL

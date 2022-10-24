@@ -7,7 +7,7 @@ const EditModal = ({ modalOpen, email, firstname, lastname, status, role }) => {
       <div className='edit-view-modal' >
           <div className='edit-centered'>
               <div className='edit-view-modal-wrapper'>
-                  <button onClick={()=> modalOpen(false)}><AiIcon.AiOutlineClose size={25} /></button>
+                  <button className='close-button' onClick={()=> modalOpen(false)}><AiIcon.AiOutlineClose size={25} /></button>
                   <div className='edit-view-content'>
                       <h2>Update</h2>
                       <form className='edit-loginform'>
@@ -31,7 +31,7 @@ const EditModal = ({ modalOpen, email, firstname, lastname, status, role }) => {
                               <label htmlFor='role'>Role</label>
                               <input type="text" placeholder={role} name="role" id="role"></input>
                           </div>
-                          {/* <Button className='button-login' text='Update' /> */}
+                          <Button className='button-login' text='Update' />
                       </form>
                   </div>
               </div>

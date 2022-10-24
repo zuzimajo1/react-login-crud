@@ -6,3 +6,4 @@ export { default as Header } from "./Header";
 export { default as Table } from "./Table";
 export { default as ViewModal } from "./ViewModal";
 export { default as EditModal } from "./EditModal";
+export { default as CreateModal } from "./CreateModal";

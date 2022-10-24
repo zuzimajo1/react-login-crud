@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Login } from '../pages';
 import { useSelector } from 'react-redux';
 const LoginRouter = () => {
-    const { userLogin } = useSelector(state => state.user);
+  
   return (
     <main className='login-router-main'>
         <Login />

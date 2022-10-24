@@ -10,26 +10,30 @@ import * as GoIcon from "react-icons/go";
 import * as AiIcon from "react-icons/ai";
 import * as CgIcon from "react-icons/cg";
 import * as MdIcon from "react-icons/md";
-
+import { useSelector } from 'react-redux';
 
 const SideBar = () => {
-  return (
-    <aside className='aside-container'>
-        <img className='logo' src={LMCLogo2} alt="LMCLogo"></img>
-        <UserContainer/>
-        <SideBarNavigation/>
-    </aside>
-  )
+    return (
+        <aside className='aside-container'>
+            <img className='logo' src={LMCLogo2} alt="LMCLogo"></img>
+            <UserContainer />
+            <SideBarNavigation />
+        </aside>
+    )
 }
 
-const UserContainer = ()=>(
-    <div className='user-container'>
-        <User name='User A' role='Admin' /> 
-    </div>
-)
+const UserContainer = () => {
+    const { firstname, lastname, role } = useSelector(state=>state?.auth?.user);
+    return (
+        <div className='user-container'>
+            <User name={`${firstname} ${lastname}`} role={role} />
+        </div>
+    )
+}
 
 
-const SideBarNavigation = ()=>(
+
+const SideBarNavigation = () => (
     <nav className='sidebar-navigation'>
         <ul>
             <li className='sidebar-list'><NavLink exact="true" className={({ isActive }) => isActive ? "sidebar-active" : "sidebar-inactive"} to={ROUTE.HOME}><HiIcon.HiDesktopComputer size={23} className="sidebar-icon" />Dashboard</NavLink></li>

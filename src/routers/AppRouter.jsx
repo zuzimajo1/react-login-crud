@@ -6,7 +6,8 @@ import { Header, SideBar } from '../components';
 import * as ROUTE from "../constants/routes";
 import { useSelector } from 'react-redux';
 const AppRouter = () => {
-    const { isAdmin } = useSelector(state=>state.user.user);
+    const {isAdmin} = useSelector(state => state?.auth?.user);
+    
     return (
         <main className='app-main'>
             <SideBar/>
@@ -19,7 +20,7 @@ const AppRouter = () => {
                     <Route path={ROUTE.ASSESSMENTS} element={<Assessments/>}/>
                     <Route path={ROUTE.MODULE_LIBRARY} element={<Module_Library/>}/>
                     <Route path={ROUTE.TEAMS} element={<Teams/>}/>
-                    <Route path={ROUTE.USERS} element={isAdmin ? <Users/> : <Navigate to="/dashboard"/>}/>
+                    <Route path={ROUTE.USERS} element={isAdmin ? <Users/> : <Navigate to="/"/> }/>
                     <Route path={ROUTE.REPORTS} element={<Reports/>}/>
                     <Route path={ROUTE.PROFILE} element={<Profile/>}/>
                     <Route path={ROUTE.HELP_AND_FEEDBACK} element={<Help_and_Feeback/>}/>

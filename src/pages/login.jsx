@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { validateEmail } from '../helpers/utils';
 import { login, LoginUser } from '../helpers/api';
 import { useSelector, useDispatch } from 'react-redux';
-import { Loginuser } from '../redux/reducers/userRedux';
+import { Loginuser } from '../redux/reducers/authRedux';
 
 const Login = () => {
   return (
@@ -24,13 +24,12 @@ const Login = () => {
 
 const Image = () => <img className='ategirl' src={AteGirl} alt="ategirl"></img>
 
-
 const LoginForm = () => {
   const email = useRef();
   const password = useRef();
   const dispatch = useDispatch();
 
-  const handlelogin = async (e)=>{
+  const handlelogin = async (e) => {
     e.preventDefault();
 
     if (!email.current.value) { return toast.warn("Email is required!"); }
@@ -50,28 +49,26 @@ const LoginForm = () => {
 
   }
 
-
-
   return (
     <div className="loginform-wrapper">
-      <img  src={LMCLogo} alt="LMCLogo"></img>
+      <img src={LMCLogo} alt="LMCLogo"></img>
       <h2>Welcome to LMC Admin App</h2>
       <Button className='button-google' text='Sign in with Google' icon Icon={FcIcon.FcGoogle} Iconclassname='googleIcon'></Button>
       <div className='divider'>
-      <div className='line'></div>
-      <p >or Sign in with Email</p>
-      <div className='line'></div>
+        <div className='line'></div>
+        <p >or Sign in with Email</p>
+        <div className='line'></div>
       </div>
       <form className='loginform' onSubmit={handlelogin}>
-       <div>
+        <div>
           <label htmlFor='email'>Email</label>
           <input type="text" name="email" id="email" ref={email}></input>
-       </div>
-       <div>
+        </div>
+        <div>
           <label htmlFor='password'>Password</label>
           <input type="password" name="password" id="password" ref={password}></input>
-       </div>
-       <p className='forgot-password'><a>forgot password?</a></p>
+        </div>
+        <p className='forgot-password'><a>forgot password?</a></p>
         <Button className='button-login' text='Login' />
       </form>
     </div>

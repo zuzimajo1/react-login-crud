@@ -6,22 +6,25 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: 30;
 
   .edit-centered{
      position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 99;
 
     .edit-view-modal-wrapper{
-        width: 350px;
-        height: 300px;
+        width: 320px;
+        height: 500px;
         background: white;
         border-radius: 5px;
         @include centerflex();
 
-        button{
+    
+
+        .close-button{
             position: absolute;
             right: 10;
             top: 10;
@@ -30,6 +33,44 @@
             border: none;
             cursor: pointer;
         }
+
+        .edit-view-content{
+          text-align: center;
+        
+
+        .edit-loginform {
+        @include marginVertical(20px, 0);
+        width: 100%;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          label {
+            @include text(13px, 400, "Open Sans");
+            text-align: center;
+            color: black;
+          }
+
+          input {
+            @include marginVertical(10px, 0);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid #b7b2b2;
+            outline: none;
+         
+          }
+        }
+         .button-login {
+          @include button(100%, 20px, $login-button-color, 17);
+          color: white;
+          padding: 8px 0;
+          border: none;
+          @include marginVertical(10px, 0);
+        }
+      }
+      }
 
 
 

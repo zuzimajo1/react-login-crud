@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 
 const App = () => {
-  const { userLogin } = useSelector(state => state.user);
+  const { userLogin } = useSelector(state => state?.auth);
+  console.log(userLogin);
   return (
     <>
       {userLogin ? <AppRouter /> : <LoginRouter />}

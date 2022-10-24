@@ -3,17 +3,21 @@ import Button from './Button'
 import * as HiIcon from "react-icons/hi";
 import * as IoIcon from "react-icons/io5";
 import { useDispatch } from 'react-redux';
-import { Logout } from '../redux/reducers/userRedux';
+import { Logout } from '../redux/reducers/authRedux';
+import { HideUsers } from '../redux/reducers/usersRedux';
 
 const Header = () => {
   const dispatch = useDispatch();
   return (
     <header className='header-container'>
-        <div>
+      <div>
         <Button className='header-switch-button' text='Switch to Trainee' icon Icon={HiIcon.HiOutlineSwitchHorizontal} Iconclassname='header-switch-icons' />
         <Button className='header-bell-button' icon Icon={HiIcon.HiOutlineBell} Iconclassname='header-icons' />
-        <Button className='header-exit-button' icon Icon={IoIcon.IoExitOutline} Iconclassname='header-icons' click={() => dispatch(Logout())} />
-        </div>
+        <Button className='header-exit-button' icon Icon={IoIcon.IoExitOutline} Iconclassname='header-icons' click={() =>{ 
+          dispatch(Logout())
+          dispatch(HideUsers())
+          }} />
+      </div>
     </header>
   )
 }
