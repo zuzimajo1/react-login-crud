@@ -5,12 +5,11 @@ import { DeleteUser } from "../redux/reducers/usersRedux";
 
 const Base_URL = "https://entrance-exam-crud.herokuapp.com/";
 
-const auth2 = JSON.parse(localStorage?.getItem("persist:root"))?.auth;
-const jsonwebtoken = JSON.parse(auth2)?.auth?.token;
 
 
-
-
+const auth2 = localStorage?.getItem("persist:root") ? JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).auth : ""
+let jsonwebtoken = localStorage?.getItem("persist:root") ? auth2.token : null;
+console.log(jsonwebtoken);
 const publicRequest = axios.create({
     baseURL: Base_URL
 })

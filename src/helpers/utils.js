@@ -6,3 +6,13 @@ export const validateEmail = (email) => {
     return true;
   }
 };
+
+
+export const accessTokenChecker = (name) => {
+  let match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+  if (match) {
+    return match[2];
+  } else {
+    return false;
+  }
+};
