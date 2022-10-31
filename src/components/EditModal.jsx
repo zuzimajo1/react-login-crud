@@ -25,7 +25,10 @@ const EditModal = ({ modalOpen, email, firstname, lastname, status, role, _id })
             const res = await UpdateUser(_id, {...Data });
             dispatch(UserUpdate(res))
             modalOpen(false);
-            } catch (error) { }
+            toast.success("Edited Successfully!")
+            } catch (error) {
+            toast.error("Edit Failed")
+             }
         } else {
             return toast.warn("No changes made")
         }

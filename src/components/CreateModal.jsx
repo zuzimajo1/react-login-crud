@@ -38,7 +38,10 @@ const CreateModal = ({ modalOpen }) => {
             const res = await CreateNewUser(createUserDetails);
             dispatch(AddUser(res));
             modalOpen(false)
-        } catch (err) { }
+            toast.success("Created Successfully")
+        } catch (err) { 
+            toast.error("Creation Failed")
+        }
     }
 
 

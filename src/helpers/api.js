@@ -4,8 +4,6 @@ import { DeleteUser } from "../redux/reducers/usersRedux";
 
 const Base_URL = "https://entrance-exam-crud.herokuapp.com/";
 
-const jsonwebtoken = localStorage?.getItem("token");
-
 
 const apiRequest = async (path, config = {})=>{
     const token = localStorage?.getItem("token");
@@ -30,12 +28,6 @@ const publicRequest = axios.create({
     baseURL: Base_URL
 })
 
-const adminRequest = axios.create({
-    baseURL: Base_URL,
-    headers:{
-        token: `Bearer ${jsonwebtoken}`
-    }
-})
 
 export const LoginUser = async ({email, password})=>{
     try {
@@ -46,6 +38,7 @@ export const LoginUser = async ({email, password})=>{
     } catch (error) {
          toast.error(error.response.data.message);
     }
+
 }
 
 export const GetAllUsers = async ()=>{
@@ -61,33 +54,41 @@ export const GetAllUsers = async ()=>{
 }
 
 export const UpdateUser = async (id, Data)=>{
-    try {
-        const res = await adminRequest.patch(`users/${id}`, Data);
-        let data = res.data;
-        return data;
-    } catch (error) {
-         toast.error(error.response.data.message)
-    }
+
+    const res = apiRequest(`users/${id}`, {
+      method: "PATCH",
+      data: Data,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res;
+
+
 }
 
 export const CreateNewUser = async (Data)=>{
-    try {
-        const res = await publicRequest.post('auth', Data);
-         let data = res.data;
-         return data;
-    } catch (error) {
-         toast.error(error.response.data.message);
-    }
+     const res = apiRequest("auth", {
+       method: "POST",
+       data: Data,
+       headers: {
+         "Content-Type": "application/json",
+       },
+     });
+      return res;
 }
 
 export const DeleteUserByAdmin = async (dispatch, id)=>{
-    try {
-        const res = await adminRequest.delete(`users/${id}`);
-        dispatch(DeleteUser(id))
-        toast.done("User has been deleted!")
-    } catch (error) {
-         toast.error(error.reponse.data.message)
-    }
+
+    const res = apiRequest(`users/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    dispatch(DeleteUser(id));
+    return res;
+
 } 
 
 

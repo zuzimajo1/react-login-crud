@@ -6,6 +6,7 @@ import Edit from "../assets/edit.svg";
 import Delete from "../assets/trash.svg";
 import Modal from './ViewModal';
 import EditModal from './EditModal';
+import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { DeleteUserByAdmin } from '../helpers/api';
 import { useDispatch } from 'react-redux';
@@ -31,6 +32,17 @@ const Table = () => {
     const [UserData, setUserData] = useState(); 
     const users = useSelector((state)=> state?.users?.users);
     const dispatch = useDispatch();
+
+    const HandleButtonDelete = (id)=>{
+        try {
+            DeleteUserByAdmin(dispatch, id);
+            toast.success("Deleted Successfully!");
+        } catch (error) {
+            toast.error("Deletion Failed!");
+        }
+    }
+
+
 
     //Table Configs
     const usersColumn = [
@@ -96,8 +108,8 @@ const Table = () => {
             name: "Delete",
             center: true,
             cell: (row)=>{
-                return(
-                    <button onClick={() => DeleteUserByAdmin(dispatch,row._id)} className='actions-button'><img className='actions-svg' src={Delete} alt="Delete" /></button>
+                return( 
+                    <button onClick={() => HandleButtonDelete(row._id)} className='actions-button'><img className='actions-svg' src={Delete} alt="Delete" /></button>
                 )
             }
         }

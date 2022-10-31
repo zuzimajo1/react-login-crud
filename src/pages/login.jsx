@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import AteGirl from "../assets/ategirl.svg"
 import LMCLogo from "../assets/LMCLogo.svg"
 import { Button } from '../components'
@@ -28,13 +28,23 @@ const LoginForm = () => {
   const email = useRef();
   const password = useRef();
   const dispatch = useDispatch();
+  const [Loading, setLoading] = useState(false);
 
   const handlelogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    if (!email.current.value) { return toast.warn("Email is required!"); }
-    if (validateEmail(email.current.value)) { return toast.warn("Invalid Email!") }
-    if (!password.current.value) { return toast.warn("Password is required!") }
+    if (!email.current.value) {
+      return toast.warn("Email is required!"), setLoading(false)
+    }
+    if (validateEmail(email.current.value)) {
+      return toast.warn("Invalid Email!"), setLoading(false)
+
+    }
+    if (!password.current.value) {
+      return toast.warn("Password is required!"), setLoading(false)
+
+    }
 
     const loginDetails = {
       email: email.current.value,
@@ -45,7 +55,11 @@ const LoginForm = () => {
     try {
       const res = await LoginUser(loginDetails);
       res && dispatch(Loginuser(res))
-    } catch (error) { }
+      setLoading(false);
+    } catch (error) {
+      toast.error(error.response.data.message)
+      setLoading(false);
+    }
 
   }
 
@@ -69,7 +83,7 @@ const LoginForm = () => {
           <input type="password" name="password" id="password" ref={password}></input>
         </div>
         <p className='forgot-password'><a>forgot password?</a></p>
-        <Button className='button-login' text='Login' />
+        <Button loading={Loading} className='button-login' text='Login' />
       </form>
     </div>
   )
