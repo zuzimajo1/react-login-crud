@@ -1,10 +1,30 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { DeleteUser } from "../redux/reducers/usersRedux";
+
 const Base_URL = "https://entrance-exam-crud.herokuapp.com/";
 
-const auth2 = localStorage?.getItem("persist:root") ? JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).auth : ""
-let jsonwebtoken = auth2?.token;
+const jsonwebtoken = localStorage?.getItem("token");
+
+
+const apiRequest = async (path, config = {})=>{
+    const token = localStorage?.getItem("token");
+    const request = {
+      url: `https://entrance-exam-crud.herokuapp.com/${path}`,
+      ...config,
+    };
+
+    if(token){
+        request.headers['token'] = `Bearer ${token}`
+    }
+
+    const res = await axios(request);
+    let data = null;
+    try {
+      data = res.data;
+    } catch (error) {}
+    return data;
+}
 
 const publicRequest = axios.create({
     baseURL: Base_URL
@@ -19,8 +39,9 @@ const adminRequest = axios.create({
 
 export const LoginUser = async ({email, password})=>{
     try {
-        const res = await publicRequest.get(`auth?email=${email}&password=${password}`)
+        const res = await publicRequest.get(`auth?email=${email}&password=${password}`);
         let data = res.data;
+        localStorage.setItem('token', data.token);
         return data;
     } catch (error) {
          toast.error(error.response.data.message);
@@ -28,13 +49,15 @@ export const LoginUser = async ({email, password})=>{
 }
 
 export const GetAllUsers = async ()=>{
-    try{
-        const res = await adminRequest.get('users');
-        let data = res.data;
-        return data;
-    }catch(error){
-         toast.error(error.response.data.message);
-    }
+
+    const res = apiRequest("users", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res;
+
 }
 
 export const UpdateUser = async (id, Data)=>{

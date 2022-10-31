@@ -24,6 +24,7 @@ const HeaderUser = () => {
     const getall = async () =>{
       try {
         const res = await GetAllUsers();
+        console.log(res);
         dispatch(RetrievedAllUser(res));
 
       } catch (error) {
